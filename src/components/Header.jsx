@@ -45,15 +45,12 @@ export default function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
-          {/* Compact CTA — only on desktop/tablet, smaller on mobile */}
-          <Link
-            to="/reservation"
-            className="btn-pill hidden md:inline-block text-sm px-4 py-2"
-          >
+          {/* Desktop CTA — only shows alongside desktop nav */}
+          <Link to="/reservation" className="btn-pill hidden md:inline-flex">
             Book a Table
           </Link>
 
-          {/* Mobile hamburger — REMOVED display:none */}
+          {/* Mobile hamburger */}
           <button
             className="mobile-toggle md:hidden flex items-center justify-center w-10 h-10 border-2 border-secondary rounded-full"
             aria-label="Toggle menu"
@@ -82,11 +79,7 @@ export default function Header() {
             </NavLink>
           ))}
           <div className="px-5 py-3">
-            <Link
-              to="/reservation"
-              className="btn-pill block text-center text-sm px-4 py-2"
-              onClick={() => setOpen(false)}
-            >
+            <Link to="/reservation" className="btn-pill w-full" onClick={() => setOpen(false)}>
               Book a Table
             </Link>
           </div>
