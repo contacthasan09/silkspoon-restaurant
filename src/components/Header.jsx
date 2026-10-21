@@ -25,11 +25,12 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-gray-100" style={{ padding: '12px 0' }}>
-      <div className="container-max flex items-center justify-between gap-4">
+      <div className="container-max flex items-center justify-between gap-3">
         <Link to="/" className="flex-shrink-0" onClick={() => setOpen(false)}>
-          <img src={LOGO} alt="Silk Spoon" className="h-12 md:h-14 w-auto object-contain" />
+          <img src={LOGO} alt="Silk Spoon" className="h-10 md:h-14 w-auto object-contain" />
         </Link>
 
+        {/* Desktop nav */}
         <nav className="nav-desktop hidden md:flex items-center gap-1">
           {NAV.map((item) => (
             <NavLink
@@ -43,14 +44,20 @@ export default function Header() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-3">
-          <Link to="/reservation" className="btn-pill hidden sm:inline-block">
+        <div className="flex items-center gap-2">
+          {/* Compact CTA — only on desktop/tablet, smaller on mobile */}
+          <Link
+            to="/reservation"
+            className="btn-pill hidden md:inline-block text-sm px-4 py-2"
+          >
             Book a Table
           </Link>
+
+          {/* Mobile hamburger — REMOVED display:none */}
           <button
             className="mobile-toggle md:hidden flex items-center justify-center w-10 h-10 border-2 border-secondary rounded-full"
-            style={{ display: 'none' }}
-            aria-label="Menu"
+            aria-label="Toggle menu"
+            aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3B5844" strokeWidth="2">
@@ -60,6 +67,7 @@ export default function Header() {
         </div>
       </div>
 
+      {/* Mobile dropdown menu */}
       {open && (
         <nav className="flex flex-col border-t border-gray-100 md:hidden bg-white py-2">
           {NAV.map((item) => (
@@ -68,13 +76,17 @@ export default function Header() {
               to={item.to}
               end={item.to === '/'}
               onClick={() => setOpen(false)}
-              className={({ isActive }) => `nav-link block px-5${isActive ? ' active' : ''}`}
+              className={({ isActive }) => `nav-link block px-5 py-3${isActive ? ' active' : ''}`}
             >
               {item.label}
             </NavLink>
           ))}
           <div className="px-5 py-3">
-            <Link to="/reservation" className="btn-pill" onClick={() => setOpen(false)}>
+            <Link
+              to="/reservation"
+              className="btn-pill block text-center text-sm px-4 py-2"
+              onClick={() => setOpen(false)}
+            >
               Book a Table
             </Link>
           </div>
