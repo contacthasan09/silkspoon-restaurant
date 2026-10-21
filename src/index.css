@@ -1,0 +1,184 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-font: "Manrope", sans-serif;
+  --secondary-font: "Bricolage Grotesque", sans-serif;
+  --primary-color: #3B5844;
+  --secondary-color: #68a050;
+  --heading-color: #03200C;
+  --silk-color: #b99942;
+  --white-color: #fff;
+  --background: #F3FDE8;
+  --dark-bg: #000000;
+  --font-size: 1em;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--primary-font);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 25.6px;
+  color: var(--primary-color);
+  background: #ffffff;
+}
+
+.container-max {
+  max-width: 1140px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Pill CTA — secondary green, 48px radius */
+.btn-pill {
+  background: #68a050;
+  color: #ffffff;
+  border: none;
+  border-radius: 48px;
+  padding: 0 50px 0 27px;
+  font-family: Manrope, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 45px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.btn-pill:hover {
+  background: #3B5844;
+}
+
+/* Primary solid button */
+.btn-primary {
+  background: #3B5844;
+  color: #ffffff;
+  border: none;
+  border-radius: 7px;
+  font-size: 17px;
+  font-weight: 500;
+  padding: 12px 28px;
+  box-shadow: 0 0 6px 0 rgb(59, 88, 68);
+  cursor: pointer;
+  transition: background 0.2s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+.btn-primary:hover {
+  background: #03200C;
+}
+
+/* Uppercase submit */
+.btn-submit {
+  background: #68a050;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 32px;
+  padding: 11px 24px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.15s ease-in-out;
+}
+.btn-submit:hover {
+  background: #3B5844;
+}
+
+.nav-link {
+  color: #3B5844;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 8px 12px;
+  transition: color 0.2s ease;
+}
+.nav-link:hover,
+.nav-link.active {
+  color: #68a050;
+}
+
+.section-title {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-weight: 700;
+  color: #03200C;
+  margin: 0 0 16px;
+}
+
+.section-title-white {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+.breadcrumb {
+  background: #000000;
+  padding: 50px 0;
+  text-align: center;
+}
+.breadcrumb h1 {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 45.6px;
+  color: #ffffff;
+  margin: 0;
+}
+
+.card {
+  background: #F3FDE8;
+  color: #3B5844;
+  border-radius: 20px;
+  font-size: 16px;
+  box-shadow: 0 0 15px 0 rgb(221, 221, 221);
+}
+
+.input-field {
+  background: #ffffff;
+  color: #212529;
+  border: 2px solid rgba(94, 155, 47, 0.22);
+  border-radius: 6px;
+  padding: 12px 18px;
+  font-size: 16px;
+  font-family: Manrope, sans-serif;
+  width: 100%;
+  transition: border-color 0.15s ease-in-out;
+}
+.input-field:focus {
+  outline: none;
+  border-color: #68a050;
+}
+
+.form-label {
+  display: block;
+  font-size: 16px;
+  color: #3B5844;
+  margin-bottom: 6px;
+}
+
+.glass-card {
+  background: rgba(0, 0, 0, 0.6);
+  color: #ffffff;
+  border-radius: 15px;
+  padding: 13px 23px;
+  font-size: 16px;
+  backdrop-filter: blur(10px);
+}
+
+.padding100 { padding-top: 100px; padding-bottom: 100px; }
+.padding50 { padding-top: 50px; padding-bottom: 50px; }
+
+@media (max-width: 767px) {
+  .nav-desktop { display: none !important; }
+  .mobile-toggle { display: flex !important; }
+  .breadcrumb h1 { font-size: 28px; }
+  .padding100 { padding-top: 50px; padding-bottom: 50px; }
+}
